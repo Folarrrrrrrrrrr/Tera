@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import sideBox from "../../assets/images/png/welcomFrame.png";
 import teraLogo from "../../assets/images/png/teraLogo.png"
 
