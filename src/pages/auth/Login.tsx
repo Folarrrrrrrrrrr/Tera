@@ -3,7 +3,7 @@ import { useState } from "react";
 import AuthLayout from "../../component/Auth/AuthLayout";
 import Input from "../../component/UI/Form/Input";
 import Button from "../../component/UI/Form/Button";
-import Checkbox from "../../component/UI/Form/Checkbox";
+// import Checkbox from "../../component/UI/Form/Checkbox";
 import eyeSlash from "../../assets/images/png/eyeslash.png"
 import { Link } from "react-router-dom";
 
