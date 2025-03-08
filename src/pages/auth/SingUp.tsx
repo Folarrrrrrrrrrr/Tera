@@ -4,14 +4,20 @@ import Input from "../../component/UI/Form/Input";
 import Button from "../../component/UI/Form/Button";
 import Checkbox from "../../component/UI/Form/Checkbox";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 
 
 const Signup = () => {
+  
+  const navigate = useNavigate();
+  
+  const [phone, setPhone] = useState("");
   const [form, setForm] = useState({
     state: "",
-    licenseNumber: "",
+    licenseNumber:  "",
     fullName: "",
     email: "",
     phone: "",
@@ -27,18 +33,29 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => setLoading(false), 2000); // Simulated API call
+    navigate(`/otpModal`)
   };
+
 
   return (
     <AuthLayout>
-      <div className="w-full relative -top-15 bg-white p-8 rounded-lg shadow-lg">
+      <div className="w-4/4 relative bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Create an account</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input label="State" name="state" value={form.state} onChange={handleChange} required />
           <Input label="Real Estate License Number" name="licenseNumber" value={form.licenseNumber} onChange={handleChange} required />
           <Input label="Full Name" name="fullName" value={form.fullName} onChange={handleChange} required />
           <Input label="Email" type="email" name="email" value={form.email} onChange={handleChange} required />
-          <Input label="Phone Number" name="phone" value={form.phone} onChange={handleChange} required />
+          {/* <Input label="Phone Number" name="phone" value={form.phone} onChange={handleChange} required /> */}
+          <PhoneInput
+            country={"us"} // Set default country
+            value={phone}
+            onChange={(value) => setPhone(value)}
+            enableSearch={true} // Enables country search
+            inputClass="!w-full !px-4 !py-2 !border !border-gray-300 !rounded-lg !pl-14 !focus:outline-none !focus:ring-2 !focus:ring-blue-500 !focus:border-blue-500"
+            containerClass="w-full"
+            buttonClass="!bg-transparent !border-none"
+          />
           <Input label="Password" type="password" name="password" value={form.password} onChange={handleChange} required />
           <Checkbox label="By clicking Sign up, you confirm that you have read, understood, and agreed to our Terms and Conditions and Privacy Policy." required />
           <Button type="submit" isLoading={loading}>Sign up</Button>
@@ -49,6 +66,7 @@ const Signup = () => {
         </Link>
       </div>
     </AuthLayout>
+   
   );
 };
 
