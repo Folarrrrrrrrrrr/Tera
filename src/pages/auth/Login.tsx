@@ -47,7 +47,7 @@ const Login = () => {
             required
           />
           <div className="relative -top-7">
-            <img src={eyeSlash} alt="" className="relative left-120 top-15" />
+            <img src={eyeSlash} alt="" className="relative left-145 top-15" />
             <Input
               label="Password"
               type="password"
