@@ -37,7 +37,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="h-[60%] w-2/4 relative bg-white p-8 rounded-lg shadow-lg">
+      <div className="h-[60%] w-2/4 relative left-10 top-[10%]   bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Create an account</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input label="" placeholder="Enter your state" name="state" value={form.state} onChange={handleChange} required />
