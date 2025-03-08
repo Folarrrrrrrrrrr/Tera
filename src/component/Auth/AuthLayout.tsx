@@ -14,7 +14,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children,}) => {
       <img
         src={sideBox}
         alt=""
-        className="w-[45%] h-full relative right-0 "
+        className=" bottom-0 absolute right-0  "
       />
     </div>
   );
