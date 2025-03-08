@@ -29,7 +29,7 @@ const OtpModal = () => {
         </div>
         <form
           onSubmit={handleOTPSubmit}
-          className="flex flex-col  h-50 mt-[5%] items-center "
+          className="flex flex-col  h-50 mt-[5%] items-center text-black  "
         >
           <OtpInput
             value={otp}
