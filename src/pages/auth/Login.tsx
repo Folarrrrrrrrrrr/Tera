@@ -40,7 +40,7 @@ const Login = () => {
                 <img src={eyeSlash} alt="" className="relative left-120 top-15" />
                 <Input label="Password" type="password" name="password" value={form.password} onChange={handleChange} required />
             </div>
-            <p className="relative left-90 -top-10 cursor-pointer">forgot password? </p>
+            <p className="relative left-90 -top-10 color-red cursor-pointer">forgot password? </p>
             
               <Button type="submit" isLoading={loading}>Login</Button>
             
