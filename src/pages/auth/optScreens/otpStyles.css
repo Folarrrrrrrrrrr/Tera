@@ -1,0 +1,18 @@
+@keyframes scaleIn {
+    0% {
+      transform: scale(0.5); /* Start smaller */
+      opacity: 0; /* Fully transparent */
+    }
+    100% {
+      transform: scale(1); /* Normal size */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+  .successPopup{
+    animation: scaleIn 0.3s  ease-in-out forwards;
+  }
+
+  .modalBackground{
+    background-color: rgba(39, 28, 28, 0.808);
+  }
