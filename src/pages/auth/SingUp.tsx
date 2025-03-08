@@ -57,7 +57,7 @@ const Signup = () => {
             buttonClass="!bg-transparent !border-none"
           />
           <Input label="Password" type="password" name="password" value={form.password} onChange={handleChange} required />
-          <Checkbox label="By clicking Sign up, you confirm that you have read, understood, and agreed to our Terms and Conditions and Privacy Policy." required />
+          <Checkbox className="bg-white" label="By clicking Sign up, you confirm that you have read, understood, and agreed to our Terms and Conditions and Privacy Policy." required />
           <Button type="submit" isLoading={loading}>Sign up</Button>
         </form>
         
