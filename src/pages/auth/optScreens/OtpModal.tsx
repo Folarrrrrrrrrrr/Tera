@@ -9,7 +9,7 @@ import success from "../../../assets/images/png/greenMark.png"
 
 const OtpModal = () => {
   const [otp, setOtp] = useState("");
-  const [successPopup, setSuccessPopup] = useState(true);
+  const [successPopup, setSuccessPopup] = useState(false);
 
   const handleOTPSubmit = (e: React.FormEvent) => {
     e.preventDefault();
