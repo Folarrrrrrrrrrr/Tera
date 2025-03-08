@@ -36,7 +36,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="h-[60%] w-2/4 relative left-10 top-[10%]   bg-white p-8 rounded-lg shadow-lg">
+      <div className="h-[60%] w-2/4 relative left-10 top-[10%] bg-white p-8 rounded-lg shadow-lg">
         <div className="flex relative top-5">
           {/* <h2 className="text-2xl text-black font-bold mb-6">Login or Sign</h2> */}
           <img src={teraLogo} alt="" className="relative -top-10  w-20" />
