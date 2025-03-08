@@ -1,5 +1,4 @@
 import { useState } from "react";
-import AuthLayout from "../../component/Auth/AuthLayout";
 import Input from "../../component/UI/Form/Input";
 import Button from "../../component/UI/Form/Button";
 import Checkbox from "../../component/UI/Form/Checkbox";
@@ -7,8 +6,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
-
+import sideBox from "../../assets/images/png/welcomFrame.png";
 
 const Signup = () => {
   
@@ -38,14 +36,14 @@ const Signup = () => {
 
 
   return (
-    <AuthLayout>
-      <div className="w-4/4 relative bg-white p-8 rounded-lg shadow-lg">
+    <div>
+      <div className="h-[60%] w-2/4 relative bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Create an account</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <Input label="State" name="state" value={form.state} onChange={handleChange} required />
-          <Input label="Real Estate License Number" name="licenseNumber" value={form.licenseNumber} onChange={handleChange} required />
-          <Input label="Full Name" name="fullName" value={form.fullName} onChange={handleChange} required />
-          <Input label="Email" type="email" name="email" value={form.email} onChange={handleChange} required />
+          <Input label="" placeholder="Enter your state" name="state" value={form.state} onChange={handleChange} required />
+          <Input label="" placeholder="Real Estate License Number" name="licenseNumber" value={form.licenseNumber} onChange={handleChange} required />
+          <Input label="" placeholder="Full Name" name="fullName" value={form.fullName} onChange={handleChange} required />
+          <Input label="" placeholder="Email" type="email" name="email" value={form.email} onChange={handleChange} required />
           {/* <Input label="Phone Number" name="phone" value={form.phone} onChange={handleChange} required /> */}
           <PhoneInput
             country={"us"} // Set default country
@@ -61,11 +59,19 @@ const Signup = () => {
           <Button type="submit" isLoading={loading}>Sign up</Button>
         </form>
         
-        <Link to={{pathname:"/login"}}>
+        <Link className="relative -top-25" to={{pathname:"/login"}}>
           <p className="text-center relative top-25">Already have an account? <span className="text-blue-950 cursor-pointer">  Login </span></p>
         </Link>
       </div>
-    </AuthLayout>
+      <div>
+      <img
+        src={sideBox}
+        alt=""
+        className=" h-[100vh] w-[400px] bottom-0 absolute right-0"
+      />
+      </div>
+
+    </div>
    
   );
 };
