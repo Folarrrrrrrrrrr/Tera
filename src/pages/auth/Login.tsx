@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-[50vw] m-20 bg-white p-8  rounded-lg shadow-lg">
+      <div className="w-[50vw] relative  bg-white p-8  rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Login or Sign</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
