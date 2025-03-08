@@ -31,8 +31,8 @@ const Login = () => {
   };
 
   return (
-    <AuthLayout>
-      <div className="relative -top-60 w-xl mr-20 bg-white p-8  rounded-lg shadow-lg">
+    <AuthLayout> 
+      <div className="-mt-50 w-xl mr-20 bg-white p-8  rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Login or Sign</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
             <Input label="Email" type="email" name="email" value={form.email} onChange={handleChange} required />
