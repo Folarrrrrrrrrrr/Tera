@@ -4,7 +4,7 @@ import sideBox from "../../assets/images/png/welcomFrame.png";
 // import AuthLayout from "../../component/Auth/AuthLayout";
 import Input from "../../component/UI/Form/Input";
 import Button from "../../component/UI/Form/Button";
-// import Checkbox from "../../component/UI/Form/Checkbox";
+import teraLogo from "../../assets/images/png/teraLogo.png"
 import eyeSlash from "../../assets/images/png/eyeslash.png";
 import { Link } from "react-router-dom";
 
@@ -31,8 +31,12 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-[50vw] absolute left-10 top-[10%]  bg-white p-8  rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-6">Login or Sign</h2>
+      <div className="h-[60%] w-2/4 mt-15 relative left-10 top-[10%]  bg-white p-8 rounded-lg shadow-lg">
+        <div className="flex">
+         {/* <h2 className="text-2xl text-black font-bold mb-6">Login or Sign</h2> */}
+        <img src={teraLogo} alt="" className="relative -top-10  w-20"/>
+        </div>
+
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
             label="Email"
