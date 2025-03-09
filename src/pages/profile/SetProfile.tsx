@@ -3,7 +3,6 @@ import Input from "../../component/UI/Form/Input";
 import Button from "../../component/UI/Form/Button";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "react-phone-input-2/lib/style.css";
 
 const SetProfile = () => {
   const navigate = useNavigate();
