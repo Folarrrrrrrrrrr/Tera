@@ -73,7 +73,7 @@ const OtpModal = () => {
                     >
                     &times;
                     </button>
-                    <Link to="">
+                    <Link to="/set-profile">
                         <Button type="submit" >Setup your Profile</Button>
                     </Link>
                 </div>

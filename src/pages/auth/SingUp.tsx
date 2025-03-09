@@ -5,7 +5,7 @@ import Checkbox from "../../component/UI/Form/Checkbox";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import eyeSlash from "../../assets/images/png/eyeslash.png";
-import "react-phone-input-2/lib/style.css";
+// import "react-phone-input-2/lib/style.css";
 import sideBox from "../../assets/images/png/welcomFrame.png";
 import teraLogo from "../../assets/images/png/teraLogo.png";
 
