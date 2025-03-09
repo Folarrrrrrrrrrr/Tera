@@ -4,7 +4,6 @@ import Button from "../../component/UI/Form/Button";
 import Checkbox from "../../component/UI/Form/Checkbox";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import PhoneInput from "react-phone-input-2";
 import eyeSlash from "../../assets/images/png/eyeslash.png";
 import "react-phone-input-2/lib/style.css";
 import sideBox from "../../assets/images/png/welcomFrame.png";
@@ -13,7 +12,7 @@ import teraLogo from "../../assets/images/png/teraLogo.png";
 const Signup = () => {
   const navigate = useNavigate();
 
-  const [phone, setPhone] = useState("");
+  // const [phone, setPhone] = useState("");
   const [form, setForm] = useState({
     state: "",
     licenseNumber: "",
@@ -21,6 +20,7 @@ const Signup = () => {
     email: "",
     phone: "",
     password: "",
+    confirmPassword:""
   });
   const [loading, setLoading] = useState(false);
 
@@ -32,6 +32,8 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => setLoading(false), 2000); // Simulated API call
+    console.log(form);
+    
     navigate(`/otpModal`);
   };
 
@@ -45,27 +47,27 @@ const Signup = () => {
             <Input
               label=""
               placeholder="Enter your state"
-              type="email"
-              name="email"
-              value={form.email}
+              type="text"
+              name="state"
+              value={form.state}
               onChange={handleChange}
               required
             />
             <Input
               label=""
               placeholder="Enter License number"
-              type="email"
-              name="email"
-              value={form.email}
+              type="text"
+              name="licenseNumber"
+              value={form.licenseNumber}
               onChange={handleChange}
               required
             />
             <Input
               label=""
               placeholder="Enter full name"
-              type="email"
-              name="email"
-              value={form.email}
+              type="text"
+              name="fullName"
+              value={form.fullName}
               onChange={handleChange}
               required
             />
@@ -78,16 +80,26 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
-            <PhoneInput
+            <Input
+              label=""
+              placeholder="Enter phone number"
+              type="number"
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
+            {/* <PhoneInput
             country={"us"} 
-            value={phone}
+            name={"phone"}
+            value={form.phone}
             placeholder="XX XXX ....."
-            onChange={(value) => setPhone(value)}
+            onChange={()=>handleChange}
             enableSearch={true} 
             inputClass="!w-full !px-4 text-black !py-2 !border !border-gray-300 !rounded-lg !pl-14 !focus:outline-none !focus:ring-2 !focus:ring-blue-500 !focus:border-blue-500"
             containerClass="w-3/4"
             buttonClass="!bg-transparent !border-none"
-            />
+            /> */}
             <div className=" flex flex-col w-[100%] ">
               <Input
                 label=""
@@ -109,8 +121,8 @@ const Signup = () => {
                 label=""
                 placeholder="confirm password"
                 type="password"
-                name="password"
-                value={form.password}
+                name="confirmPassword"
+                value={form.confirmPassword}
                 onChange={handleChange}
                 required
               />
