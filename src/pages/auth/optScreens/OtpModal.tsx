@@ -22,8 +22,8 @@ const OtpModal = () => {
     <>
       <div className="bg-white p-6 rounded-lg h-[400px] shadow-lg w-[34%] absolute left-[35%] top-[25vh]">
         <div className="mt-[5%] ">
-          <h2 className="text-center text-lg font-semibold">Enter OTP code</h2>
-          <p className="text-center text-gray-600 text-sm mb-4">
+          <h2 className="text-center text-lg text-black font-semibold">Enter OTP code</h2>
+          <p className="text-center  text-gray-600 text-sm mb-4">
             A 4 digit code has been sent to johndoe@gmail.com
           </p>
         </div>
@@ -61,7 +61,7 @@ const OtpModal = () => {
                 <span onClick={() => setSuccessPopup(!successPopup)} className="successPopup modalBackground absolute top-0 left-0 right-0 bottom-0 "></span>
                 <div className="successPopup  bg-white p-6 rounded-lg h-[400px] shadow-lg w-[450px] absolute left-[35%] top-[20%]">
                     <div className="mt-[5%] ">
-                    <h2 className="text-center text-lg font-semibold mt-10">Success!</h2>
+                    <h2 className="text-center text-black text-lg font-semibold mt-10">Success!</h2>
                     <img src={success}  className=" mt-10 mb-10 justify-self-center self-center" alt="" />
                     <p className="text-center text-gray-600 text-sm mb-4">
                         Your OTP has been verified successfully.

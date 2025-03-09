@@ -121,7 +121,7 @@ const Signup = () => {
               />
             </div>
             <Checkbox
-            className="bg-white"
+            className="bg-white text-black"
             label="By clicking Sign up, you confirm that you have read, understood, and agreed to our Terms and Conditions and Privacy Policy."
             required
           />
