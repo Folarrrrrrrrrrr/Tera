@@ -62,7 +62,7 @@ const Login = () => {
                 className="w-[15px] h-[15px] self-center relative left-[45%] -top-[24px] "
               />
             </div>
-            <p className="relative left-[80%]  text-red-400 cursor-pointer">
+            <p className="relative left-[70%]  text-red-400 cursor-pointer">
               forgot password?{" "}
             </p>
             <Button
