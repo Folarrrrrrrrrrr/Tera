@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import questionMark from "../../assets/images/png/Group.png";
-import right from "../../assets/images/png/rightAngle.png";
-import signature from "../../assets/images/png/penIcon.png";
+// import right from "../../assets/images/png/rightAngle.png";
+// import signature from "../../assets/images/png/penIcon.png";
 import solidSignature from "../../assets/images/png/signature-solid_svgrepo.png";
 
 const SignatureInitial = () => {
@@ -11,11 +11,11 @@ const SignatureInitial = () => {
   const [signature, setSignature] = useState("");
   const [initials, setInitials] = useState("");
 
-  const handleSignatureChange = (e) => {
+  const handleSignatureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignature(e.target.value);
   };
 
-  const handleInitialsChange = (e) => {
+  const handleInitialsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInitials(e.target.value);
   };
 
@@ -26,7 +26,7 @@ const SignatureInitial = () => {
     
         <button onClick={() => navigate(-1)} className=" absolute top-5  flex items-center text-blue-600 mb-4">&larr; Back</button>
         <div className="flex">
-            <img src={signature} className="h-[20px] mt-[10px]" />
+            {/* <img src={signature} className="h-[20px] mt-[10px]" /> */}
             <p className="text-blue-600 font-semibold py-2">Create Signature & Initials</p>
         </div>
         <div className="flex">
