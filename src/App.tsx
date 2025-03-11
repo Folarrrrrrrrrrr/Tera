@@ -5,6 +5,7 @@ import Signup from "./pages/auth/SingUp";
 import  Login from "./pages/auth/Login";
 import  OtpModal from "./pages/auth/optScreens/OtpModal";
 import SetProfile from './pages/profile/SetProfile';
+import SignatureInitial from './pages/profile/SignatureInitial'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/otpModal" element={<OtpModal/>} />      
       <Route path="/set-profile" element={<SetProfile/>} />      
+      <Route path="/set-signature" element={<SignatureInitial/>} />      
     </Routes>
   </Router>
   )

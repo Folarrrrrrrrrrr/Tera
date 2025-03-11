@@ -33,7 +33,7 @@ const Signup = () => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000); // Simulated API call
     console.log(form);
-    
+    localStorage.setItem("userData", JSON.stringify(form));    
     navigate(`/otpModal`);
   };
 
@@ -89,17 +89,7 @@ const Signup = () => {
               onChange={handleChange}
               required
             />
-            {/* <PhoneInput
-            country={"us"} 
-            name={"phone"}
-            value={form.phone}
-            placeholder="XX XXX ....."
-            onChange={()=>handleChange}
-            enableSearch={true} 
-            inputClass="!w-full !px-4 text-black !py-2 !border !border-gray-300 !rounded-lg !pl-14 !focus:outline-none !focus:ring-2 !focus:ring-blue-500 !focus:border-blue-500"
-            containerClass="w-3/4"
-            buttonClass="!bg-transparent !border-none"
-            /> */}
+            
             <div className=" flex flex-col w-[100%] ">
               <Input
                 label=""
