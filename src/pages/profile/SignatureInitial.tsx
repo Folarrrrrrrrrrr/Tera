@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import questionMark from "../../assets/images/png/Group.png";
-// import right from "../../assets/images/png/rightAngle.png";
-// import signature from "../../assets/images/png/penIcon.png";
-import solidSignature from "../../assets/images/png/signature-solid_svgrepo.png";
+import back from "../../assets/images/png/back.png";
+import bluePen from "../../assets/images/png/bluePen.png";
+import blackPen from "../../assets/images/png/blackPen.png";
+import "./SignatureInitial.css"
+
 
 const SignatureInitial = () => {
-    const navigate = useNavigate();
-
+  const navigate = useNavigate();
+  const [activeButton, setActiveButton] = useState<string>("create");
   const [signature, setSignature] = useState("");
   const [initials, setInitials] = useState("");
+  const [selectedSignature, setSelectedSignature] = useState<
+    "signature" | "initial" | null
+  >(null);
+  const [showSuccess, setShowSuccess] = useState(false);
+
 
   const handleSignatureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSignature(e.target.value);
@@ -20,53 +27,176 @@ const SignatureInitial = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="grid h-screen w-[100%] bg-gray-100">
+      <h5 className="text-xl h-[30px] font-bold text-center">
+        Add your Signature & Initials
+      </h5>
+
       {/* Sidebar */}
-      <div className="w-[17%] h-[80%] self-center rounded-lg ml-20 bg-white shadow-lg p-6">
-    
-        <button onClick={() => navigate(-1)} className=" absolute top-5  flex items-center text-blue-600 mb-4">&larr; Back</button>
-        <div className="flex">
-            {/* <img src={signature} className="h-[20px] mt-[10px]" /> */}
-            <p className="text-blue-600 font-semibold py-2">Create Signature & Initials</p>
+      <div className="flex justify-center items-center w-[100%] self-center rounded-lg ml-20 ">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex p-[5px] text-center items-center absolute left-[2%]"
+        >
+          <img src={back} alt="Back" />
+          Back
+        </button>
+
+        <div
+          className={`flex px-4 py-2 border-2 rounded-full mr-5 transition-all ${
+            activeButton === "create"
+              ? "border-blue-500 text-blue-500 font-bold"
+              : "border-gray-500 text-gray-500"
+          }`}
+          onClick={() => setActiveButton("create")}
+        >
+          <img
+            src={activeButton === "create" ? bluePen : blackPen}
+            className="h-[20px] justify-self-center self-center"
+          />
+          <p>Create Signature & Initials</p>
         </div>
-        <div className="flex">
-            <img src={solidSignature} className="h-[20px] mt-[10px]"/>
-            <p className="py-2 text-gray-600">Adopt Signature & Initials</p>
+
+        <div
+          className={`flex px-4 py-2 border-2 rounded-full transition-all ${
+            activeButton === "adopt"
+              ? "border-blue-500 text-blue-500 font-bold"
+              : "border-gray-500 text-gray-500"
+          }`}
+          onClick={() => setActiveButton("adopt")}
+        >
+          <img
+            src={activeButton === "adopt" ? bluePen : blackPen}
+            className="h-[20px]"
+          />
+          <p>Adopt Signature & Initials</p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="w-3/4 p-5">
-        <h5 className="text-xl  font-bold mb-6">Add your Signature & Initials</h5>
-        
-        <div className="bg-white h-[85%] p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold mb-4">Create Signature</h2>
-          
-          <div className="mb-4">
-            <label className="block font-medium mb-1">Sign here <img src={questionMark} className="relative -top-[20px] left-[75px] w-[13px]"/></label>
-            <input 
-              type="text"
-              value={signature}
-              onChange={handleSignatureChange}
-              className="w-full border border-gray-300 rounded p-3"
-              placeholder="Draw or type your signature"
-            />
-          </div>
+      {/* Render section based on active button */}
+      {activeButton === "create" ? (
+        <div className="p-5 justify-center items-center w-[70%] h-[500px] ml-[15%]">
+          <div className="bg-white h-[90%] p-6 rounded-lg shadow-lg">
+            <h2 className="text-xl font-semibold mb-4">Create Signature</h2>
 
-          <div>
-            <label className="block font-medium mb-1">Write your initials <img src={questionMark} className="relative -top-[20px] left-[128px] w-[13px]"/> </label>
-            <input 
-              type="text"
-              value={initials}
-              onChange={handleInitialsChange}
-              className="w-full border border-gray-300 rounded p-3"
-              placeholder="Type your initials"
-            />
+            <div className="mb-4">
+              <label className="block font-medium mb-1">
+                Sign here
+                <img
+                  src={questionMark}
+                  className="relative -top-[20px] left-[75px] w-[13px]"
+                />
+              </label>
+              <input
+                type="text"
+                value={signature}
+                onChange={handleSignatureChange}
+                className="w-full border border-gray-300 rounded p-3"
+                placeholder="Draw or type your signature"
+              />
+            </div>
+
+            <div>
+              <label className="block font-medium mb-1">
+                Write your initials
+                <img
+                  src={questionMark}
+                  className="relative -top-[20px] left-[128px] w-[13px]"
+                />
+              </label>
+              <input
+                type="text"
+                value={initials}
+                onChange={handleInitialsChange}
+                className="w-full border border-gray-300 rounded p-3"
+                placeholder="Type your initials"
+              />
+            </div>
+
+            <button  onClick={() => setShowSuccess(true)} className="mt-[50px] bg-white text-black font-medium py-3 rounded-lg w-full hover:bg-blue-700 hover:text-white disabled:bg-gray-400">
+              Continue
+            </button>
           </div>
         </div>
+      ) : activeButton === "adopt" ? (
+        <div className="bg-white p-5 justify-center items-center w-[70%] h-[500px] ml-[15%]">
+        <h2 className="text-xl font-semibold mb-2">Adopt a Signature</h2>
+        <p className="text-gray-600 mb-4">Choose a Signature or Initial to use when signing a document.</p>
+
+          <div className="flex justify-between gap-6">
+            {/* Signature Box */}
+            <div
+              className={`w-1/2 border-2 rounded-lg p-4 text-center cursor-pointer transition-all ${
+                selectedSignature === "signature"
+                  ? "border-blue-500"
+                  : "border-gray-300"
+              }`}
+              onClick={() => setSelectedSignature("signature")}
+            >
+              <h3 className="text-gray-500 text-sm">Signature</h3>
+              <p className=" signatureFont text-2xl italic font-extralight ">John Doe</p>
+              <p className="text-blue-500 text-sm mt-2">Use sign</p>
+            </div>
+
+            {/* Initial Box */}
+            <div
+              className={`w-1/2 border-2 rounded-lg p-4 text-center cursor-pointer transition-all ${
+                selectedSignature === "initial"
+                  ? "border-blue-500"
+                  : "border-gray-300"
+              }`}
+              onClick={() => setSelectedSignature("initial")}
+            >
+              <h3 className="text-gray-500 text-sm">Initial</h3>
+              <p className=" signatureFont text-2xl italic font-extralight">JD</p>
+              <p className="text-blue-500 text-sm mt-2">Use initial</p>
+            </div>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            onClick={() => setShowSuccess(true)}
+            className="mt-[150px] w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium disabled:bg-white"
+            disabled={!selectedSignature}
+          >
+            Submit
+          </button>
+        </div>
+      ) : null}
+
+      {/* Success popup starts here  */}
+      {showSuccess &&    
+      <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50">
+      <div className="bg-white w-[350px] p-6 rounded-lg shadow-lg text-center">
+        {/* Success Icon */}
+        <div className="flex justify-center mb-4">
+          <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+            <span className="text-white text-2xl">✔</span>
+          </div>
+        </div>
+
+        {/* Success Message */}
+        <h2 className="text-lg font-semibold">Profile created Successfully</h2>
+        <p className="text-gray-500 text-sm mt-2">
+          Your profile has been successfully created.
+          <br />
+          Let’s dive deep with Tera.
+        </p>
+
+        {/* CTA Button */}
+        <button
+          // onClick={onClose}
+          className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-blue-700"
+        >
+          Set up Brokerage
+        </button>
       </div>
+      </div>
+      }
     </div>
   );
 };
+
+
 
 export default SignatureInitial;
