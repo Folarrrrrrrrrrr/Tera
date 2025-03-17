@@ -82,7 +82,7 @@ const BrokerageForm = () => {
         </div>
 
         {/* Success Message */}
-        <h2 className="text-lg font-semibold">Brokerage created Successfully</h2>
+        <h2 className="text-lg text-black font-semibold">Brokerage created Successfully</h2>
         <p className="text-gray-500 text-sm mt-2">
           Your Brokerage has been successfully created.
           <br />

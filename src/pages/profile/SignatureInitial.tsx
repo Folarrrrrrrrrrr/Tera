@@ -28,7 +28,7 @@ const SignatureInitial = () => {
   };
 
   return (
-    <div className="grid h-{100%} w-[100%] bg-gray-100">
+    <div className="grid h-{100vh} w-[100vw] bg-gray-100">
       <h5 className="text-xl h-[30px] font-bold text-center">
         Add your Signature & Initials
       </h5>
@@ -123,7 +123,7 @@ const SignatureInitial = () => {
       ) : activeButton === "adopt" ? (
         <div className="p-5 justify-center items-center w-[70%] h-[100vh] ml-[15%]">
          <div className="bg-white p-5 justify-center items-center w-[50%] h-[610px] ml-[25%]">
-        <h2 className="text-xl font-semibold mb-2">Adopt a Signature</h2>
+        <h2 className="text-xl text-black font-semibold mb-2">Adopt a Signature</h2>
         <p className="text-gray-600 mb-4">Choose a Signature or Initial to use when signing a document.</p>
 
           <div className="flex justify-evenly mb-2 gap-6 p-3 bg-gray-100">
