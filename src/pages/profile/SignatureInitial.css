@@ -2,3 +2,22 @@
     font-family: 'MonteCarlo';
     font-style: oblique;
 }
+
+
+@keyframes scaleIn {
+    0% {
+      transform: scale(0.5); /* Start smaller */
+      opacity: 0; /* Fully transparent */
+    }
+    100% {
+      transform: scale(1); /* Normal size */
+      opacity: 1; /* Fully visible */
+    }
+  }
+
+.signModal{
+    animation: scaleIn 0.3s  ease-in-out forwards;
+}
+.modalBackground{
+    background-color: #4b454521;
+}
