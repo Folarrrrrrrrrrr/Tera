@@ -12,4 +12,9 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     label: string;
   }
 
+  export interface SidebarItemProps {
+    icon: string;
+    text: string;
+    active?: boolean;
+  }
 

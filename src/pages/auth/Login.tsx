@@ -8,7 +8,10 @@ import eyeSlash from "../../assets/images/png/eyeslash.png";
 import eyeOpen from "../../assets/images/png/vision.png"; // Add an open-eye icon
 
 const Login = () => {
+
   const navigate = useNavigate();
+
+  
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -60,7 +63,7 @@ const Login = () => {
                 onClick={() => setShowPassword(!showPassword)}
               />
             </div>
-            <p className="relative left-[70%] text-red-400 cursor-pointer">
+            <p className="relative left-[70%] text-gray-600 hover:text-red-800 cursor-pointer">
               Forgot password?
             </p>
             <Button className="relative -top-10" type="submit" isLoading={loading}>
