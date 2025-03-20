@@ -78,10 +78,10 @@ const SignatureInitial = () => {
       {activeButton === "create" ? (
         <div className="p-5 justify-center items-center w-[70%] h-[100vh] ml-[15%]">
           <div className="bg-white h-[500px] p-6 rounded-lg shadow-lg">
-            <h2 className="text-xl font-semibold mb-4">Create Signature</h2>
+            <h2 className="text-xl text-black font-semibold mb-4">Create Signature</h2>
 
             <div className="mb-4">
-              <label className="block font-medium mb-1">
+              <label className="block  text-black font-medium mb-1">
                 Sign here
                 <img
                   src={questionMark}
@@ -99,7 +99,7 @@ const SignatureInitial = () => {
             </div>
 
             <div>
-              <label className="block font-medium mb-1">
+              <label className="block  text-blackfont-medium mb-1">
                 Write your initials
                 <img
                   src={questionMark}
@@ -124,7 +124,7 @@ const SignatureInitial = () => {
         <div className="p-5 justify-center items-center w-[70%] h-[100vh] ml-[15%]">
          <div className="bg-white p-5 justify-center items-center w-[50%] h-[610px] ml-[25%]">
         <h2 className="text-xl text-black font-semibold mb-2">Adopt a Signature</h2>
-        <p className="text-gray-600 mb-4">Choose a Signature or Initial to use when signing a document.</p>
+        <p className=" text-black mb-4">Choose a Signature or Initial to use when signing a document.</p>
 
           <div className="flex justify-evenly mb-2 gap-6 p-3 bg-gray-100">
             {/* Signature Box */}
@@ -137,8 +137,8 @@ const SignatureInitial = () => {
               }`}
               onClick={() => setSelectedSignature("signature")}
             >
-              <h3 className="text-gray-500 text-sm">Signature</h3>
-              <p className=" signatureFont text-2xl italic font-extralight ">John Doe</p>
+              <h3 className="text-gray-500  text-sm">Signature</h3>
+              <p className=" text-black signatureFont text-2xl italic font-extralight ">John Doe</p>
               <p className="text-blue-500 text-sm mt-2">Use sign</p>
             </div>
 
