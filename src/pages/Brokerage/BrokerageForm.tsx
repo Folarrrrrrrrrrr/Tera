@@ -92,7 +92,7 @@ const BrokerageForm = () => {
         {/* CTA Button */}
         <button
           // onClick={onClose}
-          onClick={()=>navigate("/brokerageSetup")}
+          onClick={()=>navigate("/dashboard")}
           className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-blue-700"
         >
           Go to Dashboard
