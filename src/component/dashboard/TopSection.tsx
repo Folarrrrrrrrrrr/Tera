@@ -1,7 +1,7 @@
 import React from "react";
 import bell from "../../assets/images/png/notification.png";
 import picture from "../../assets/images/png/profilePhoto.png";
-import logo from "../../assets/images/png/teraLogo.png";
+// import logo from "../../assets/images/png/teraLogo.png";
 
 const TopNav: React.FC = () => {
   return (

@@ -10,12 +10,12 @@ import close from "../../assets/images/png/closeIcon.png";
 import Checkbox from "../../component/UI/Form/Checkbox";
 import Input from "../../component/UI/Form/Input";
 import Button from "../UI/Form/Button";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function HomeTable() {
   const [addClient, setAddClient] = useState(false);
   const [email, setEmail] = useState("");
-  const [generatePassword, setGeneratePassword] = useState(true);
+  const [generatePassword] = useState(true);
   const [inviteModal, setInviteModal] = useState(false);
   const [successModal, setSuccessModdal] = useState(false);
 
