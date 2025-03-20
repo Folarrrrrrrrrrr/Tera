@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-
-
+import "./WelcomeScreen.css"
 const BrokerageSetup = () => {
   const navigate = useNavigate();
 
@@ -12,11 +10,8 @@ const BrokerageSetup = () => {
       <div className="relative w-[610px] h-[702px] rounded-lg overflow-hidden shadow-lg">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('src/assets/images/png/BrokerageBanner.png')",
-          }}
-        >
+          className="backgroundImg absolute inset-0 bg-cover bg-center"
+          >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-700 opacity-90"></div>
         </div>
 
