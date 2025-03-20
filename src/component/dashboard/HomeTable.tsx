@@ -4,7 +4,7 @@ import addIcon from "../../assets/images/png/Plus.png";
 import dropdown from "../../assets/images/png/dropdown.png";
 import emailIcon from "../../assets/images/png/email.png";
 import location from "../../assets/images/png/location.png";
-import modalEmail from "../../assets/images/png/modalEmail.png";
+import modalEmail from "../../assets/images/png/ModalEmail.png";
 import success from "../../assets/images/png/greenMark.png";
 import close from "../../assets/images/png/closeIcon.png";
 import Checkbox from "../../component/UI/Form/Checkbox";
@@ -441,7 +441,7 @@ function HomeTable() {
       <hr className="w-[98%] ml-[10px] self-center" />
       <div className=" ml-[20px] underline-offset-1 mt-2 mb-2 flex justify-between  w-[95%]">
         <div className="">All</div>
-        <div className=""> showing () of () </div>
+        <div className=""> showing 1 of {totalPages} </div>
       </div>
 
       {/* Table body section below  */}
