@@ -9,6 +9,10 @@ import SignatureInitial from './pages/profile/SignatureInitial'
 import BrokerageSetup from './pages/Brokerage/WelcomeScreen';
 import BrokerageForm from './pages/Brokerage/BrokerageForm';
 import Dashboard from './pages/dashboard/Dashboard';
+import HomeTable from './component/dashboard/HomeTable';
+import Rooms from './component/dashboard/room/Rooms';
+import TransactionScreen from './component/dashboard/TransactionScreen';
+// import Rooms from './component/dashboard/Rooms';
 
 
 function App() {
@@ -23,7 +27,14 @@ function App() {
       <Route path="/set-signature" element={<SignatureInitial/>} />      
       <Route path="/brokerageSetup" element={<BrokerageSetup/>} />      
       <Route path="/brokerageForm" element={<BrokerageForm/>} /> 
-      <Route path="/dashboard" element={<Dashboard/>} /> 
+     
+      <Route path="/dashboard/*" element={<Dashboard />}>
+          <Route index element={<HomeTable />} />
+          <Route path='home' element={<HomeTable />} />
+          <Route path="rooms" element={<Rooms />} />
+          <Route path="transactions" element={<TransactionScreen/>}/>
+          {/* Add more child routes here */}
+      </Route>
 
     </Routes>
   </Router>

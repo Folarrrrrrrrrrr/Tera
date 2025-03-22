@@ -514,20 +514,20 @@ function HomeTable() {
 
       {/* Pagination Controls */}
       
-       <div className="flex space-x-2 p-4 justify-center">
-      <button  style={{ backgroundColor: "rgba(238, 238, 238, 1)" }} onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="px-3 py-1 border rounded">&larr;</button>
-      {getPageNumbers().map((page, index) => (
-        <button
-          key={index}
-          onClick={() => typeof page === "number" && handlePageChange(page)}
-          className={`px-3 py-1 border rounded ${page === currentPage ? "bg-gray-300" : ""}`}
-          disabled={page === "..."}
-        >
-          {page}
-        </button>
-      ))}
-      <button  style={{ backgroundColor: "rgba(238, 238, 238, 1)" }} onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="px-3 py-1  border rounded">&rarr;</button>
-    </div>
+      <div className="flex space-x-2 p-4 justify-center">
+        <button  style={{ backgroundColor: "rgba(238, 238, 238, 1)" }} onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="px-3 py-1 border rounded">&larr;</button>
+        {getPageNumbers().map((page, index) => (
+          <button
+            key={index}
+            onClick={() => typeof page === "number" && handlePageChange(page)}
+            className={`px-3 py-1 border rounded ${page === currentPage ? "bg-gray-300" : ""}`}
+            disabled={page === "..."}
+          >
+            {page}
+          </button>
+        ))}
+        <button  style={{ backgroundColor: "rgba(238, 238, 238, 1)" }} onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="px-3 py-1  border rounded">&rarr;</button>
+       </div>
     </div>
   );
 }
