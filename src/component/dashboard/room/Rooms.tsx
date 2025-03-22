@@ -4,7 +4,7 @@ import roomTwo from "../../../assets/images/jpg/firstRoom.jpeg"
 import roomThree from "../../../assets/images/jpg/secondRoom.jpeg"
 import roomFour from "../../../assets/images/jpg/thirdRoom.jpeg"
 import "./room.css"
-import { Navigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 const rooms = [
   { name: "James Stephenson’s Room", image: roomOne },
   { name: "Scott Dunn’ Room", image: roomTwo },
