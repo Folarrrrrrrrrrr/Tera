@@ -17,4 +17,4 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
     text: string;
     active?: boolean;
   }
-
+  export type optionType = { value: string; label: string };

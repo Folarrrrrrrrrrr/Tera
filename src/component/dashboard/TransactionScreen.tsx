@@ -5,10 +5,71 @@ import React, { useState } from "react";
 // import { Pagination } from "@/components/ui/pagination";
 import heroBanner from "../../assets/images/jpg/transactionBanner.jpeg"
 import location from "../../assets/images/png/location.png"
+import Whitelocation from "../../assets/images/png/whitelocation.png"
+import edit from "../../assets/images/png/edit.png"
+import Input from "../../component/UI/Form/Input";
+import Button from "../UI/Form/Button";
+import { optionType } from "../../types/globalTypes";
+import Select,{ MultiValue } from "react-select";
 
 const TransactionScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState("active");
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const options:optionType[] = [
+    { value: "GAR - Exclusive Buyer Brokerage", label: "GAR - Exclusive Buyer Brokerage" },
+    { value: "GAR - Exclusive Buyer Brokerage", label: "GAR - Exclusive Buyer Brokerage" },
+    { value: "GAR - No Financial Contingency", label: "GAR - No Financial Contingency" },
+    { value: "GAR - VA Loan Contingency", label: "GAR - VA Loan Contingency" },
+    { value: "GAR - No Financial Brokerage", label: "GAR - No Financial Brokerage" },
+    { value: "GAR - VA Loan Contingency", label: "GAR - VA Loan Contingency" },
+  ];
+  const [transactionForm, setTransactionForm] = useState(false);
+  const [form, setForm] = useState({
+    title: "",
+    transactionType: [] as string[], 
+    State: "",
+    representationDocument: null as File | null, 
+  });
+  
+
+  // create transaction form begins here
+  
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  
+const handleSelectChange = (
+  selectedOptions: MultiValue<optionType>
+) => {
+  setForm({
+    ...form,
+    transactionType: selectedOptions.map(option => option.value), // Ensure it's an array
+  });
+};
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = new FormData();
+    formData.append("title", form.title);formData.append("transactionType", form.transactionType.join(","));
+
+    formData.append("State", form.State);
+    if (form.representationDocument) {
+      formData.append("representationDocument", form.representationDocument);
+    }
+    console.log(form);
+    setTimeout(() => setLoading(false), 5000); // Simulated API call
+    setShowSuccess(true);
+    setTransactionForm(false);
+  };
+  // transaction form end here
+
+
   // const [searchTerm, setSearchTerm] = useState("");
 
   const Transactions = [
@@ -140,15 +201,93 @@ const TransactionScreen: React.FC = () => {
             className="mt-[20px] w-full h-64 object-cover rounded-lg"
           />
           <div className="flex">
-            <div className="absolute -top-[30px] left-0 text-black font-small text-lg">
+            <div className="flex absolute -top-[30px] left-0 text-black font-small text-lg">
               <strong>3979 Snider Stre...</strong>
-              <img src="" alt="" />
+              <img src={edit} alt=""  className="ml-1 h-[25px] w-[20px]"/>
             </div>
-            <div className="absolute -top-[30px] text-blue-600 font-extrabold right-4">
+            <div onClick={()=>setTransactionForm(true)} className="absolute -top-[30px] text-blue-600 font-extrabold right-4">
             Create Transaction
             </div>
+            {transactionForm && (
+              <>
+                <span
+                  // onClick={() => setSuccessModdal(!successModal)}
+                  className="successPopup modalBackground absolute top-0 left-0 right-0 bottom-0 "
+                ></span>
+                <div className="successPopup  bg-white p-6 rounded-lg h-[470px] shadow-lg w-[450px] absolute left-[35%] top-[20%]">
+                  {/* <img
+                    src={close}
+                    alt=""
+                    onClick={() => setClientForm(false)}
+                    className=" w-[18px] h-[20px] relative left-[380px] -top-[8px] p-1 rounded hover:bg-blue-300"
+                  /> */}
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    <Input
+                      label=""
+                      placeholder="Enter your full name"
+                      type="text"
+                      name="title"
+                      value={form.title}
+                      onChange={handleChange}
+                      required
+                    /><Select options={options} isMulti onChange={handleSelectChange} />
+
+                    <select
+                      name="communicationMethod"
+                      value={form.transactionType}
+                      onChange={handleChange}
+                      className=" bg-white border w-[100%] h-[33px] text-gray-500 font-light  border-gray-300  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                  <option value="" className="text-gray-500 font-light">
+                    Select
+                  </option>
+                  <option value="Email" className="text-gray-500 font-light">
+                    {" "}
+                    Buyer
+                  </option>
+                  <option value="Phone" className="text-gray-500 font-light">
+                    {" "}
+                    Seller{" "}
+                  </option>
+                </select>
+                    <Button type="submit" isLoading={loading}>
+                      Continue
+                    </Button>
+                  </form>
+                </div>
+              </>
+            )}
+            {/* Success popup starts here  */}
+            {showSuccess && (
+              <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50">
+                <div className="bg-white w-[350px] p-6 rounded-lg shadow-lg text-center">
+                  {/* Success Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-2xl">✔</span>
+                    </div>
+                  </div>
+
+                  {/* Success Message */}
+                  <h2 className="text-lg text-black font-semibold"> Successfully Created</h2>
+                  <p className="text-gray-500 text-sm mt-2">
+                    You have successfully created a transaction
+                  </p>
+
+                  {/* CTA Button */}
+                  <button
+                    // onClick={onClose}
+                    // onClick={() => setShowSuccess(false)}
+                    className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-blue-700"
+                  >
+                    View Transaction
+                  </button>
+                  <p className=" mt-[10px] font-bold text-blue-500" onClick={()=> setShowSuccess(false)}> Create another Transaction</p>
+                </div>
+              </div>
+            )}
             <div className="flex absolute top-[89%] left-4 text-white font-small text-lg">
-              <img src={location} alt="" />
+              <img src={Whitelocation} alt="" />
               <strong className="underline ">3979 Snider Street, Colorado</strong>
             </div>
           </div>
@@ -160,7 +299,7 @@ const TransactionScreen: React.FC = () => {
             <strong className="text-gray-400">Type:</strong> <button className="p-2 bg-blue-200"> Buyer</button>
           </p>
           <p>
-            <strong className="text-gray-400">Status:</strong> Under Contract
+            <strong className="text-gray-400">Status:</strong> {activeTab==="active"? "Under Contract": activeTab==="pending"? "Closed": activeTab==="closed" ? "Due Diligence": null}
           </p>
         </div>
 
