@@ -1,6 +1,7 @@
 import React from "react";
 import bell from "../../assets/images/png/notification.png";
 import picture from "../../assets/images/png/profilePhoto.png";
+import search from "../../assets/images/png/serach.png";
 // import logo from "../../assets/images/png/teraLogo.png";
 
 const TopNav: React.FC = () => {
@@ -14,10 +15,12 @@ const TopNav: React.FC = () => {
 
       {/* Search Bar */}
       <div className="flex-1 mx-6 ml-[10%]">
+       <img src={search} alt="" className="relative top-[30px] left-[5px]"
+        />
         <input
           type="text"
-          placeholder="Search"
-          className="w-3/4 px-4 py-2 border rounded-lg bg-gray-100 text-black focus:outline-none focus:ring focus:ring-blue-300"
+          placeholder="search"
+          className="w-3/4 px-4 py-2 pl-[25px] border rounded-lg bg-gray-100 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300"
         />
       </div>
 
