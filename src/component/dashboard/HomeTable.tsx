@@ -190,7 +190,7 @@ function HomeTable() {
         </div>
       </div>
       <div className=" ml-[20px] underline-offset-1  flex justify-between  w-[95%]">
-        <strong className="">Manually On-board</strong>
+        <strong className=" content-center">Manually On-board</strong>
           <div className="flex justify-between items-center mb-2">
         <input
           type="text"
@@ -204,8 +204,8 @@ function HomeTable() {
           className=" text-blue-600 text-xl font-inter flex cursor-pointer "
           onClick={() => setAddClient(!addClient)}
         >
-          <img src={addIcon} alt="" className="h-[12px] w-[10px] self-center" />
-          <p className="">Add Client</p>
+          <img src={addIcon} alt="" className="h-[12px]  w-[10px] self-center" />
+          <p className=" content-center ">Add Client</p>
           <img
             src={dropdown}
             alt=""
